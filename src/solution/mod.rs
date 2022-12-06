@@ -1,6 +1,7 @@
 use anyhow::{anyhow, Context};
 use std::fs;
 
+mod day_four;
 mod day_one;
 mod day_three;
 mod day_two;
@@ -31,6 +32,15 @@ pub fn solve(day: u8, part: u8, file: Option<String>) -> Result<String, anyhow::
             match part {
                 1 => day_three::part_one::solve(&contents),
                 2 => day_three::part_two::solve(&contents),
+                _ => Err(anyhow!("invalid part selection")),
+            }
+        }
+        4 => {
+            let file_path = file.unwrap_or("input/day_four/input.txt".to_string());
+            let contents = read_file_to_string(&file_path)?;
+            match part {
+                1 => day_four::part_one::solve(&contents),
+                2 => day_four::part_two::solve(&contents),
                 _ => Err(anyhow!("invalid part selection")),
             }
         }
