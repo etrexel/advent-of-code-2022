@@ -4,6 +4,7 @@ use std::fs;
 mod day_five;
 mod day_four;
 mod day_one;
+mod day_six;
 mod day_three;
 mod day_two;
 
@@ -51,6 +52,15 @@ pub fn solve(day: u8, part: u8, file: Option<String>) -> Result<String, anyhow::
             match part {
                 1 => day_five::part_one::solve(&contents),
                 2 => day_five::part_two::solve(&contents),
+                _ => Err(anyhow!("invalid part selection")),
+            }
+        }
+        6 => {
+            let file_path = file.unwrap_or_else(|| "input/day_six/input.txt".to_string());
+            let contents = read_file_to_string(&file_path)?;
+            match part {
+                1 => day_six::part_one::solve(&contents),
+                2 => day_six::part_two::solve(&contents),
                 _ => Err(anyhow!("invalid part selection")),
             }
         }
