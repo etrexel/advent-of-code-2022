@@ -1,3 +1,4 @@
+use aoc;
 use clap::Parser;
 
 #[derive(Parser)]
@@ -16,6 +17,11 @@ pub(crate) struct Cli {
     pub file: Option<String>,
 }
 
-pub(crate) fn parse() -> Cli {
-    Cli::parse()
+fn main() {
+    let cli = Cli::parse();
+    let result = aoc::solve(cli.day, cli.part, cli.file);
+    match result {
+        Ok(res) => println!("{}", res),
+        Err(e) => println!("ERROR: {}", e),
+    }
 }
