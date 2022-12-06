@@ -10,7 +10,7 @@ pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {
 
 fn create_groups(input: &str) -> Result<Vec<Vec<String>>, anyhow::Error> {
     let mut groups = Vec::new();
-    let lines: Vec<&str> = input.split("\n").collect();
+    let lines: Vec<&str> = input.split('\n').collect();
     if lines.len() % 3 != 0 {
         return Err(anyhow!("must be at least three in each group"));
     }
@@ -66,7 +66,7 @@ PmmdzqPrVvPwwTWBwg
 wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw";
-        assert_eq!("70", solve(&input).expect("should return result"));
+        assert_eq!("70", solve(input).expect("should return result"));
     }
 
     #[test]

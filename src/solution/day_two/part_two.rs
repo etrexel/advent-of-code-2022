@@ -3,33 +3,33 @@ use anyhow::anyhow;
 
 fn parse_choice(s: &str) -> Result<Choice, anyhow::Error> {
     match s {
-        "A" => Ok(Choice::ROCK),
-        "B" => Ok(Choice::PAPER),
-        "C" => Ok(Choice::SCISSORS),
+        "A" => Ok(Choice::Rock),
+        "B" => Ok(Choice::Paper),
+        "C" => Ok(Choice::Scissors),
         _ => Err(anyhow!("couldn't convert input to Choice: {}", s)),
     }
 }
 
 #[derive(Debug, Clone, Copy, Eq, PartialEq)]
 enum Outcome {
-    WIN,
-    DRAW,
-    LOSS,
+    Win,
+    Draw,
+    Loss,
 }
 
 fn parse_outcome(s: &str) -> Result<Outcome, anyhow::Error> {
     match s {
-        "X" => Ok(Outcome::LOSS),
-        "Y" => Ok(Outcome::DRAW),
-        "Z" => Ok(Outcome::WIN),
+        "X" => Ok(Outcome::Loss),
+        "Y" => Ok(Outcome::Draw),
+        "Z" => Ok(Outcome::Win),
         _ => Err(anyhow!("couldn't convert input to Outcome: {}", s)),
     }
 }
 
 fn parse_input(input: &str) -> Result<Vec<(Choice, Outcome)>, anyhow::Error> {
     let mut output = Vec::<(Choice, Outcome)>::new();
-    for line in input.split("\n") {
-        let components: Vec<&str> = line.split(" ").collect();
+    for line in input.split('\n') {
+        let components: Vec<&str> = line.split(' ').collect();
         if components.len() < 2 {
             return Err(anyhow!("invalid number of components on line: {}", &line));
         }
@@ -40,23 +40,23 @@ fn parse_input(input: &str) -> Result<Vec<(Choice, Outcome)>, anyhow::Error> {
 
 fn build_game(opponent: &Choice, outcome: &Outcome) -> (Choice, Choice) {
     let player = match opponent {
-        Choice::ROCK => match outcome {
-            Outcome::WIN => Choice::PAPER,
-            Outcome::DRAW => Choice::ROCK,
-            Outcome::LOSS => Choice::SCISSORS,
+        Choice::Rock => match outcome {
+            Outcome::Win => Choice::Paper,
+            Outcome::Draw => Choice::Rock,
+            Outcome::Loss => Choice::Scissors,
         },
-        Choice::PAPER => match outcome {
-            Outcome::WIN => Choice::SCISSORS,
-            Outcome::DRAW => Choice::PAPER,
-            Outcome::LOSS => Choice::ROCK,
+        Choice::Paper => match outcome {
+            Outcome::Win => Choice::Scissors,
+            Outcome::Draw => Choice::Paper,
+            Outcome::Loss => Choice::Rock,
         },
-        Choice::SCISSORS => match outcome {
-            Outcome::WIN => Choice::ROCK,
-            Outcome::DRAW => Choice::SCISSORS,
-            Outcome::LOSS => Choice::PAPER,
+        Choice::Scissors => match outcome {
+            Outcome::Win => Choice::Rock,
+            Outcome::Draw => Choice::Scissors,
+            Outcome::Loss => Choice::Paper,
         },
     };
-    (opponent.clone(), player)
+    (*opponent, player)
 }
 
 pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {
@@ -82,9 +82,9 @@ mod tests {
 B Y
 C Z";
         let result = parse_input(input).expect("should return result");
-        assert_eq!((Choice::ROCK, Outcome::LOSS), result[0]);
-        assert_eq!((Choice::PAPER, Outcome::DRAW), result[1]);
-        assert_eq!((Choice::SCISSORS, Outcome::WIN), result[2]);
+        assert_eq!((Choice::Rock, Outcome::Loss), result[0]);
+        assert_eq!((Choice::Paper, Outcome::Draw), result[1]);
+        assert_eq!((Choice::Scissors, Outcome::Win), result[2]);
     }
 
     #[test]

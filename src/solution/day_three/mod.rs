@@ -11,10 +11,10 @@ fn compute_priority(input: &char) -> Result<u32, anyhow::Error> {
             input
         ));
     }
-    let mut val = input.clone() as u32;
-    if val >= 65 && val <= 90 {
+    let mut val = *input as u32;
+    if (65..=90).contains(&val) {
         val -= 38
-    } else if val >= 97 && val <= 122 {
+    } else if (97..=122).contains(&val) {
         val -= 96
     }
     Ok(val)

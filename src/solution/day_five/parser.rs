@@ -41,7 +41,7 @@ pub(super) fn parse_stack_group(input: &str) -> Result<StackGroup, anyhow::Error
     for _ in 0..stack_count {
         stacks.push(Vec::new());
     }
-    for i in 1..stacks.len() {
+    for (i, stack) in stacks.iter_mut().enumerate().skip(1) {
         let item_idx = match parts[0].find(&i.to_string()) {
             Some(idx) => idx,
             None => return Err(anyhow!("could not find index of stack: {}", i)),
@@ -49,7 +49,7 @@ pub(super) fn parse_stack_group(input: &str) -> Result<StackGroup, anyhow::Error
         for raw_stack_frame in &raw_stack_frames {
             if let Some(item) = raw_stack_frame.chars().nth(item_idx) {
                 if item.ne(&' ') {
-                    stacks[i].push(item);
+                    stack.push(item);
                 }
             }
         }

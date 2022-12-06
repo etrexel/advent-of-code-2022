@@ -28,7 +28,7 @@ impl Rucksack {
     pub(super) fn find_common(&self) -> Option<char> {
         for key in self.first.keys() {
             if self.second.contains_key(key) {
-                return Some(key.clone());
+                return Some(*key);
             }
         }
         None

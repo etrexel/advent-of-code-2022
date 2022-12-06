@@ -10,7 +10,7 @@ mod day_two;
 pub fn solve(day: u8, part: u8, file: Option<String>) -> Result<String, anyhow::Error> {
     match day {
         1 => {
-            let file_path = file.unwrap_or("input/day_one/input.txt".to_string());
+            let file_path = file.unwrap_or_else(|| "input/day_one/input.txt".to_string());
             let contents = read_file_to_string(&file_path)?;
             match part {
                 1 => day_one::part_one::solve(&contents),
@@ -19,7 +19,7 @@ pub fn solve(day: u8, part: u8, file: Option<String>) -> Result<String, anyhow::
             }
         }
         2 => {
-            let file_path = file.unwrap_or("input/day_two/input.txt".to_string());
+            let file_path = file.unwrap_or_else(|| "input/day_two/input.txt".to_string());
             let contents = read_file_to_string(&file_path)?;
             match part {
                 1 => day_two::part_one::solve(&contents),
@@ -28,7 +28,7 @@ pub fn solve(day: u8, part: u8, file: Option<String>) -> Result<String, anyhow::
             }
         }
         3 => {
-            let file_path = file.unwrap_or("input/day_three/input.txt".to_string());
+            let file_path = file.unwrap_or_else(|| "input/day_three/input.txt".to_string());
             let contents = read_file_to_string(&file_path)?;
             match part {
                 1 => day_three::part_one::solve(&contents),
@@ -37,7 +37,7 @@ pub fn solve(day: u8, part: u8, file: Option<String>) -> Result<String, anyhow::
             }
         }
         4 => {
-            let file_path = file.unwrap_or("input/day_four/input.txt".to_string());
+            let file_path = file.unwrap_or_else(|| "input/day_four/input.txt".to_string());
             let contents = read_file_to_string(&file_path)?;
             match part {
                 1 => day_four::part_one::solve(&contents),
@@ -46,7 +46,7 @@ pub fn solve(day: u8, part: u8, file: Option<String>) -> Result<String, anyhow::
             }
         }
         5 => {
-            let file_path = file.unwrap_or("input/day_five/input.txt".to_string());
+            let file_path = file.unwrap_or_else(|| "input/day_five/input.txt".to_string());
             let contents = read_file_to_string(&file_path)?;
             match part {
                 1 => day_five::part_one::solve(&contents),

@@ -8,8 +8,8 @@ fn parse_input(input: &str) -> Result<Vec<u32>, anyhow::Error> {
     let mut output = Vec::<u32>::new();
     output.push(0);
     let mut idx = 0;
-    for line in input.split("\n") {
-        if line == "" {
+    for line in input.split('\n') {
+        if line.is_empty() {
             output.push(0);
             idx += 1;
             continue;
@@ -41,7 +41,7 @@ mod tests {
 10000";
         assert_eq!(
             vec!(6000, 4000, 11000, 24000, 10000),
-            parse_input(&input).expect("should return vec")
+            parse_input(input).expect("should return vec")
         )
     }
 }

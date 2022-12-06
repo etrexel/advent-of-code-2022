@@ -3,17 +3,17 @@ use anyhow::anyhow;
 
 fn parse_choice(s: &str) -> Result<Choice, anyhow::Error> {
     match s {
-        "A" | "X" => Ok(Choice::ROCK),
-        "B" | "Y" => Ok(Choice::PAPER),
-        "C" | "Z" => Ok(Choice::SCISSORS),
+        "A" | "X" => Ok(Choice::Rock),
+        "B" | "Y" => Ok(Choice::Paper),
+        "C" | "Z" => Ok(Choice::Scissors),
         _ => Err(anyhow!("couldn't convert input to Choice: {}", s)),
     }
 }
 
 fn parse_input(input: &str) -> Result<Vec<(Choice, Choice)>, anyhow::Error> {
     let mut output = Vec::<(Choice, Choice)>::new();
-    for line in input.split("\n") {
-        let components: Vec<&str> = line.split(" ").collect();
+    for line in input.split('\n') {
+        let components: Vec<&str> = line.split(' ').collect();
         if components.len() < 2 {
             return Err(anyhow!("invalid number of components on line: {}", &line));
         }
@@ -41,9 +41,9 @@ mod tests {
 B Y
 C Z";
         let result = parse_input(input).expect("should return result");
-        assert_eq!((Choice::ROCK, Choice::ROCK), result[0]);
-        assert_eq!((Choice::PAPER, Choice::PAPER), result[1]);
-        assert_eq!((Choice::SCISSORS, Choice::SCISSORS), result[2]);
+        assert_eq!((Choice::Rock, Choice::Rock), result[0]);
+        assert_eq!((Choice::Paper, Choice::Paper), result[1]);
+        assert_eq!((Choice::Scissors, Choice::Scissors), result[2]);
     }
 
     #[test]

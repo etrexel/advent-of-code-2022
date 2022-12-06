@@ -28,14 +28,14 @@ impl Assignment {
 
 fn parse_input(input: &str) -> Result<Vec<(Assignment, Assignment)>, anyhow::Error> {
     let mut pairs = Vec::new();
-    for line in input.split("\n") {
+    for line in input.split('\n') {
         pairs.push(build_assignment_pair(line)?);
     }
     Ok(pairs)
 }
 
 fn build_assignment_pair(input: &str) -> Result<(Assignment, Assignment), anyhow::Error> {
-    let parts: Vec<&str> = input.split(",").collect();
+    let parts: Vec<&str> = input.split(',').collect();
     if parts.len() != 2 {
         return Err(anyhow!("invalid assignment pair: {}", input));
     }
@@ -43,7 +43,7 @@ fn build_assignment_pair(input: &str) -> Result<(Assignment, Assignment), anyhow
 }
 
 fn build_assignment(input: &str) -> Result<Assignment, anyhow::Error> {
-    let parts: Vec<&str> = input.split("-").collect();
+    let parts: Vec<&str> = input.split('-').collect();
     if parts.len() != 2 {
         return Err(anyhow!("invalid assignment string: {}", input));
     }
@@ -75,13 +75,13 @@ mod tests {
     fn test_assignment_contains() {
         let outer = Assignment { lower: 2, upper: 7 };
         let inner = Assignment { lower: 3, upper: 5 };
-        assert_eq!(true, outer.contains(&inner));
+        assert!(outer.contains(&inner));
     }
 
     #[test]
     fn test_assignment_overlap() {
         let left = Assignment { lower: 2, upper: 5 };
         let right = Assignment { lower: 4, upper: 7 };
-        assert_eq!(true, left.overlaps(&right));
+        assert!(left.overlaps(&right));
     }
 }

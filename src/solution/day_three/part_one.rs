@@ -2,7 +2,7 @@ use crate::solution::day_three::{compute_priority, rucksack::Rucksack};
 
 pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {
     let mut total = 0;
-    for line in input.split("\n") {
+    for line in input.split('\n') {
         let rucksack = Rucksack::new(line)?;
         if let Some(val) = rucksack.find_common() {
             total += compute_priority(&val)?
