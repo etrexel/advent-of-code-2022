@@ -17,4 +17,4 @@ path = "src/bin/main.rs"
 
 [dependencies]
 anyhow = "1.0.66"
-clap = { version = "4.0.22", features = ["derive"] }
+clap = { version = "4.0.29", features = ["derive"] }
