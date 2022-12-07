@@ -1,7 +1,7 @@
 use anyhow::{anyhow, Context};
 
-pub(crate) mod part_one;
-pub(crate) mod part_two;
+pub(crate) mod part_1;
+pub(crate) mod part_2;
 
 #[derive(Debug, PartialEq, Eq)]
 struct Assignment {

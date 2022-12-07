@@ -1,7 +1,7 @@
 use anyhow::Context;
 
-pub(crate) mod part_one;
-pub(crate) mod part_two;
+pub(crate) mod part_1;
+pub(crate) mod part_2;
 
 /// Sum individual groups separated by newlines
 fn parse_input(input: &str) -> Result<Vec<u32>, anyhow::Error> {

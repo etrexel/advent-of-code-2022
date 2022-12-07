@@ -1,7 +1,7 @@
 use std::collections::{HashMap, VecDeque};
 
-pub(crate) mod part_one;
-pub(crate) mod part_two;
+pub(crate) mod part_1;
+pub(crate) mod part_2;
 
 fn decode_bitstream(input: &str, unique_count: usize) -> u32 {
     let mut result = 0;

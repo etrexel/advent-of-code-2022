@@ -1,4 +1,4 @@
-use crate::solution::day_four::parse_input;
+use crate::solution::day_04::parse_input;
 
 pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {
     let mut total = 0;

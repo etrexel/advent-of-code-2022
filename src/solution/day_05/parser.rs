@@ -1,4 +1,4 @@
-use crate::solution::day_five::{Command, StackGroup};
+use crate::solution::day_05::{Command, StackGroup};
 use anyhow::{anyhow, Context};
 
 pub(super) fn parse_input(input: &str) -> Result<(StackGroup, Vec<Command>), anyhow::Error> {

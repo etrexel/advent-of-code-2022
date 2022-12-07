@@ -1,4 +1,4 @@
-use crate::solution::day_two::{score_round, Choice};
+use crate::solution::day_02::{score_round, Choice};
 use anyhow::anyhow;
 
 fn parse_choice(s: &str) -> Result<Choice, anyhow::Error> {

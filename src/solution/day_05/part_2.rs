@@ -1,4 +1,4 @@
-use crate::solution::day_five::parser::parse_input;
+use crate::solution::day_05::parser::parse_input;
 
 pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {
     let (mut stack_group, commands) = parse_input(input)?;

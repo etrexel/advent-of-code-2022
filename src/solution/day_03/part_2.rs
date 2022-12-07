@@ -1,4 +1,4 @@
-use crate::solution::day_three::compute_priority;
+use crate::solution::day_03::compute_priority;
 use anyhow::anyhow;
 
 pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {

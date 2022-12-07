@@ -1,4 +1,4 @@
-use crate::solution::day_one::parse_input;
+use crate::solution::day_01::parse_input;
 
 /// Sum all individual groups separated by newlines and return the max of the groups
 pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {

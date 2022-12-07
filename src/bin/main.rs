@@ -1,4 +1,5 @@
 use clap::Parser;
+use std::process;
 
 #[derive(Parser)]
 #[command(author, version, about, long_about = None)]
@@ -20,7 +21,10 @@ fn main() {
     let cli = Cli::parse();
     let result = aoc::solve(cli.day, cli.part, cli.file);
     match result {
-        Ok(res) => println!("{}", res),
-        Err(e) => println!("ERROR: {}", e),
+        Ok(res) => println!("Day {} part {} solution: {}", cli.day, cli.part, res),
+        Err(e) => {
+            eprintln!("ERROR: {}", e);
+            process::exit(1);
+        }
     }
 }

@@ -1,4 +1,4 @@
-use crate::solution::day_three::{compute_priority, rucksack::Rucksack};
+use crate::solution::day_03::{compute_priority, rucksack::Rucksack};
 
 pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {
     let mut total = 0;
