@@ -12,3 +12,7 @@ Cargo.lock
 # Code coverage results
 *.profraw
 *.xml
+
+# MacOS files
+.DS_store
+
