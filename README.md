@@ -1,4 +1,4 @@
-# Advent of Code 2022
+# 🎄 Advent of Code 2022 🎄
 
 [![Rust](https://github.com/etrexel/advent-of-code-2022/actions/workflows/rust.yml/badge.svg)](https://github.com/etrexel/advent-of-code-2022/actions/workflows/rust.yml)
 [![docs](https://img.shields.io/badge/rustdoc-v0.1.0-orange)](https://blog.trexel.io/advent-of-code-2022/aoc/)

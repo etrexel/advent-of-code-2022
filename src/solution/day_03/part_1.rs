@@ -1,3 +1,5 @@
+// TODO: docs
+
 use crate::solution::day_03::{compute_priority, rucksack::Rucksack};
 
 pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {

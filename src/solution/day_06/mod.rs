@@ -1,3 +1,5 @@
+// TODO: docs
+
 use std::collections::{HashMap, VecDeque};
 
 pub(crate) mod part_1;

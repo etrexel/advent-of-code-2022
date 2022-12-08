@@ -1,3 +1,5 @@
+// TODO: docs
+
 use crate::solution::day_06::decode_bitstream;
 
 pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {

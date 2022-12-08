@@ -1,3 +1,5 @@
+// TODO: docs
+
 use crate::solution::day_05::parser::parse_input;
 
 pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {

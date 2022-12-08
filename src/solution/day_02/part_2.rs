@@ -1,3 +1,5 @@
+// TODO: docs
+
 use crate::solution::day_02::{score_round, Choice};
 use anyhow::anyhow;
 
