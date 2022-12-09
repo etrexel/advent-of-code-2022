@@ -14,6 +14,7 @@ mod day_05;
 mod day_06;
 mod day_07;
 mod day_08;
+mod day_09;
 
 /// Type alias for the function signature that each solver uses.
 type Solver = fn(&str) -> Result<String, anyhow::Error>;
@@ -45,9 +46,10 @@ pub fn solve(day: u8, part: u8, file: Option<String>) -> Result<String, anyhow::
         vec![day_06::part_1::solve, day_06::part_2::solve],
         vec![day_07::part_1::solve, day_07::part_2::solve],
         vec![day_08::part_1::solve, day_08::part_2::solve],
+        vec![day_09::part_1::solve, day_09::part_2::solve],
     ];
     // check that the provided day has an associated function set from the fn_list
-    if !(1..=8).contains(&day) {
+    if !(1..=9).contains(&day) {
         return Err(anyhow!("invalid day: {}", day));
     }
     // each day has only part 1 or part 2
