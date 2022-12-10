@@ -44,7 +44,7 @@ impl Coordinates {
     /// - If the current coordinates are within one unit of the head it does not move
     /// - If the current coordinates are further than one in either direction they move
     ///
-    /// When a coordinate moves it moves one unit toward the head. If either axis is shared the
+    /// When a coordinate moves it moves one unit toward the head. If either axis is equal the
     /// coordinates move one unit on that axis towards the head. If both axes are different the
     /// coordinates move diagonally towards the head.
     pub(crate) fn update(&mut self, other: &Coordinates) {
@@ -52,35 +52,18 @@ impl Coordinates {
         if self.within_one(other) {
             return;
         }
-        // the x axis is the furthest away
-        if (self.x - other.x).abs() > 1 {
-            if self.x < other.x {
-                self.x += 1;
-            } else {
-                self.x -= 1;
+        // update x if we are not on the same row
+        if self.x != other.x {
+            match self.x < other.x {
+                true => self.x += 1,
+                false => self.x -= 1,
             }
-            // check if we need to move diagonally
-            if self.y != other.y {
-                if self.y < other.y {
-                    self.y += 1;
-                } else {
-                    self.y -= 1;
-                }
-            }
-        } else {
-            // the y axis is the furthest away
-            if self.y < other.y {
-                self.y += 1;
-            } else {
-                self.y -= 1;
-            }
-            // check if we need to move diagonally
-            if self.x != other.x {
-                if self.x < other.x {
-                    self.x += 1;
-                } else {
-                    self.x -= 1;
-                }
+        }
+        // update y if we are not on the same column
+        if self.y != other.y {
+            match self.y < other.y {
+                true => self.y += 1,
+                false => self.y -= 1,
             }
         }
     }
@@ -120,6 +103,13 @@ impl Rope {
         // the starting square is always visited
         visited.insert(Coordinates::new(), true);
         Ok(Rope { knots, visited })
+    }
+
+    /// Convenience method for processing a list of [Movement] objects.
+    pub(crate) fn process_moves(&mut self, movements: &Vec<Movement>) {
+        for movement in movements {
+            self.process_move(movement);
+        }
     }
 
     /// Update the coordinates of each knot based on a [Movement].
@@ -270,9 +260,7 @@ mod tests {
             },
         ];
         let mut rope = Rope::new(1).expect("should return result");
-        for movement in movements {
-            rope.process_move(&movement);
-        }
+        rope.process_moves(&movements);
         assert_eq!(13, rope.tail_visit_count());
     }
 

@@ -8,9 +8,7 @@ pub(crate) fn solve(input: &str) -> Result<String, anyhow::Error> {
     let movements = parse_input(input)?;
     let mut rope_bridge = Rope::new(1)?;
     // loop over movements updating rope
-    for movement in movements {
-        rope_bridge.process_move(&movement);
-    }
+    rope_bridge.process_moves(&movements);
     Ok(rope_bridge.tail_visit_count().to_string())
 }
 

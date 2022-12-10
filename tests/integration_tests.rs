@@ -156,3 +156,23 @@ fn test_day_09_part_2() {
         aoc::solve(9, 2, None).expect("should return result")
     );
 }
+
+#[test]
+fn test_day_10_part_1() {
+    assert_eq!(
+        "14860",
+        aoc::solve(10, 1, None).expect("should return result")
+    );
+}
+
+#[test]
+fn test_day_10_part_2() {
+    let gt = "
+###...##..####.####.#..#.#..#.###..#..#.
+#..#.#..#....#.#....#..#.#..#.#..#.#.#..
+#..#.#......#..###..####.#..#.#..#.##...
+###..#.##..#...#....#..#.#..#.###..#.#..
+#.#..#..#.#....#....#..#.#..#.#.#..#.#..
+#..#..###.####.####.#..#..##..#..#.#..#.\n";
+    assert_eq!(gt, aoc::solve(10, 2, None).expect("should return result"));
+}

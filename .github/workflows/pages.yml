@@ -13,9 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Build
-        run: |
-          cargo doc --no-deps --document-private-items
-          echo "<meta http-equiv=\"refresh\" content=\"0; url=aoc\">" > target/doc/index.html
+        run: make docs
       - uses: actions/upload-pages-artifact@v1
         with:
           path: target/doc/
