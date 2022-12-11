@@ -176,3 +176,19 @@ fn test_day_10_part_2() {
 #..#..###.####.####.#..#..##..#..#.#..#.\n";
     assert_eq!(gt, aoc::solve(10, 2, None).expect("should return result"));
 }
+
+#[test]
+fn test_day_11_part_1() {
+    assert_eq!(
+        "95472",
+        aoc::solve(11, 1, None).expect("should return result")
+    );
+}
+
+#[test]
+fn test_day_11_part_2() {
+    assert_eq!(
+        "17926061332",
+        aoc::solve(11, 2, None).expect("should return result")
+    );
+}
