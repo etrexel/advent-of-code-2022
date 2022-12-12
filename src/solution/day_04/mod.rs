@@ -49,6 +49,7 @@ fn build_assignment(input: &str) -> Result<Assignment, anyhow::Error> {
     if parts.len() != 2 {
         return Err(anyhow!("invalid assignment string: {}", input));
     }
+    // TODO: Fix contexts
     let lower = parts[0].parse::<u32>().context("lk")?;
     let upper = parts[1].parse::<u32>().context("lk")?;
     Ok(Assignment::new(lower, upper))

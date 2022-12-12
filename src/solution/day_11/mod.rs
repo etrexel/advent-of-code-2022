@@ -1,3 +1,5 @@
+// TODO: docs
+
 use anyhow::{anyhow, Context};
 
 pub(crate) mod part_1;
@@ -217,4 +219,13 @@ impl Monkeys {
             _ => inspections[0] * inspections[1],
         }
     }
+}
+
+// TODO: add tests
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_stuff() {}
 }
