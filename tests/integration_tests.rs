@@ -208,3 +208,19 @@ fn test_day_12_part_2() {
         aoc::solve(12, 2, None).expect("should return result")
     );
 }
+
+#[test]
+fn test_day_13_part_1() {
+    assert_eq!(
+        "5588",
+        aoc::solve(13, 1, None).expect("should return result")
+    );
+}
+
+#[test]
+fn test_day_13_part_2() {
+    assert_eq!(
+        "23958",
+        aoc::solve(13, 2, None).expect("should return result")
+    );
+}

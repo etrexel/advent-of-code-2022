@@ -82,6 +82,7 @@ impl Map {
 
         while !unvisited.is_empty() {
             // could be optimized by keeping track of min on the fly
+            // replace this lookup with a min-heap using custom Ord implementation on coord height tuple
             let current = get_min_distance(&unvisited, &distance)?;
             if current == self.start && exit_early {
                 return Ok(distance);
@@ -170,6 +171,7 @@ fn get_min_distance(
     Ok(coords)
 }
 
+// TODO: more tests
 #[cfg(test)]
 mod tests {
     use super::*;
